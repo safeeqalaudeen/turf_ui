@@ -18,6 +18,8 @@ import {
 
 import playerImg from '../assets/player_cutout.png';
 import turfPitchImg from '../assets/turf_pitch_clean.jpg';
+import floodlightLeft from '../assets/floodlight_left.png';
+import floodlightRight from '../assets/floodlight_right.png';
 
 export default function TurfBookHero() {
   const [isFavorited, setIsFavorited] = useState(false);
@@ -55,6 +57,16 @@ export default function TurfBookHero() {
       
       {/* Top subtle gradient overlay for maximum navbar readability */}
       <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#00130D]/80 to-transparent pointer-events-none z-0" />
+
+      {/* Far-Left Stadium Floodlight - Angled diagonally towards center footballer */}
+      <div className="absolute top-14 sm:top-16 lg:top-20 left-2 sm:left-5 md:left-7 lg:left-8 w-28 sm:w-36 md:w-44 lg:w-48 pointer-events-none select-none z-10 opacity-90 drop-shadow-[0_0_25px_rgba(0,245,176,0.35)]">
+        <img src={floodlightLeft} alt="Stadium floodlight tower" className="w-full h-auto object-contain" />
+      </div>
+
+      {/* Far-Right Stadium Floodlight - Angled diagonally towards center footballer */}
+      <div className="absolute top-14 sm:top-16 lg:top-20 right-2 sm:right-5 md:right-7 lg:right-8 w-28 sm:w-36 md:w-44 lg:w-48 pointer-events-none select-none z-10 opacity-90 drop-shadow-[0_0_25px_rgba(0,245,176,0.35)]">
+        <img src={floodlightRight} alt="Stadium floodlight tower" className="w-full h-auto object-contain" />
+      </div>
 
       {/* ========================================================
           SECTION 3: TOP NAVIGATION BAR
