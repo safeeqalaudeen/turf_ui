@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  margin: 0;
+  background: #00130d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.test-container {
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+  width: 500px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.test-card {
+  width: 460px;
+  height: 288px;
+  border-radius: 28px;
+  position: relative;
+  background: #00251a;
+  border: 2.5px solid #00f5b0;
+  box-shadow: 
+    0 0 35px rgba(0, 245, 176, 0.45),
+    14px 6px 0px 0px #011d14,
+    15px 7px 0px 1px rgba(0, 245, 176, 0.35),
+    25px 15px 45px rgba(0, 0, 0, 0.85);
+  transform-style: preserve-3d;
+  overflow: hidden;
+}
+.v1 {
+  transform: perspective(1000px) rotateY(-16deg) rotateX(5deg) rotate(-3deg);
+}
+.v2 {
+  transform: rotate(-3.5deg) skewX(-2deg) skewY(1deg);
+}
+.v3 {
+  transform: perspective(900px) rotateY(-20deg) rotateX(7deg) rotate(-3.5deg);
+}
+</style>
+</head>
+<body>
+<div class='test-container'><div class='test-card v1'></div></div>
+</body>
+</html>

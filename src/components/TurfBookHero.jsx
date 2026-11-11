@@ -154,7 +154,7 @@ export default function TurfBookHero() {
       {/* ========================================================
           HERO MAIN CONTENT & SHOWCASE AREA
       ======================================================== */}
-      <main className="relative z-20 max-w-[1440px] mx-auto px-4 sm:px-8 w-full pt-1 sm:pt-3 pb-10 sm:pb-12 flex-1 flex flex-col justify-center">
+      <main className="relative z-20 max-w-[1440px] mx-auto px-4 sm:px-8 w-full pt-5 sm:pt-8 lg:pt-10 pb-8 sm:pb-10 flex-1 flex flex-col justify-center">
         
         {/* Two-Column Layout Grid */}
         <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
@@ -237,7 +237,7 @@ export default function TurfBookHero() {
           {/* ========================================================
               SECTION 5: Football Player (Layered Behind Headline)
           ======================================================== */}
-          <div className="hidden lg:block absolute top-[-40px] xl:top-[-50px] left-[27%] xl:left-[29%] w-[400px] xl:w-[440px] pointer-events-none z-10 select-none transition-all duration-1000">
+          <div className="hidden lg:block absolute top-[-22px] xl:top-[-26px] left-[27%] xl:left-[29%] w-[400px] xl:w-[440px] pointer-events-none z-10 select-none transition-all duration-1000">
             <img 
               src={playerImg} 
               alt="Realistic football player #10 kicking ball on floodlit grass" 
@@ -248,8 +248,9 @@ export default function TurfBookHero() {
           {/* ========================================================
               SECTION 7: Right-Side Featured Turf Showcase (3D Tilted Card)
           ======================================================== */}
-          <div className={`lg:col-span-5 relative z-20 flex justify-center lg:justify-end lg:perspective-container transition-all duration-700 delay-200 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            <div className="relative w-full max-w-[490px] rounded-[24px] overflow-hidden border-2 border-[#00F5B0]/80 bg-[#00251A] shadow-[0_0_35px_rgba(0,245,176,0.45),0_0_15px_rgba(200,255,0,0.2)] lg:tilted-3d-card group select-none">
+          <div className={`lg:col-span-5 relative z-20 flex justify-center lg:justify-end perspective-container transition-all duration-700 delay-200 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+            <div className="relative w-full max-w-[490px] lg:-translate-x-8">
+              <div className="relative w-full rounded-[24px] overflow-hidden border-2 border-[#00F5B0]/80 bg-[#00251A] tilted-3d-card group select-none">
               
               {/* Aerial photograph of realistic football turf at night */}
               <div className="relative aspect-[16/10] overflow-hidden">
@@ -321,10 +322,11 @@ export default function TurfBookHero() {
             </div>
 
             {/* Carousel Indicators Under Card */}
-            <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-1.5">
+            <div className="absolute -bottom-7 sm:-bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-1.5">
               <span className={`h-1.5 rounded-full transition-all duration-300 ${cardCarouselIndex === 0 ? 'w-7 bg-[#00F5B0] shadow-[0_0_8px_#00F5B0]' : 'w-1.5 bg-[#2A473C]'}`} />
               <span className={`h-1.5 rounded-full transition-all duration-300 ${cardCarouselIndex === 1 ? 'w-7 bg-[#00F5B0] shadow-[0_0_8px_#00F5B0]' : 'w-1.5 bg-[#2A473C]'}`} />
               <span className={`h-1.5 rounded-full transition-all duration-300 ${cardCarouselIndex === 2 ? 'w-7 bg-[#00F5B0] shadow-[0_0_8px_#00F5B0]' : 'w-1.5 bg-[#2A473C]'}`} />
+            </div>
             </div>
           </div>
 
@@ -333,7 +335,7 @@ export default function TurfBookHero() {
         {/* ========================================================
             SECTION 8: TURF SEARCH AND BOOKING BAR
         ======================================================== */}
-        <div className={`relative z-30 mt-16 sm:mt-20 lg:mt-[115px] transition-all duration-700 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+        <div className={`relative z-30 mt-16 sm:mt-20 lg:mt-[165px] transition-all duration-700 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
           <div className="p-2 sm:p-2.5 rounded-[20px] bg-[#00251A]/85 border border-[#00F5B0]/30 backdrop-blur-xl shadow-[0_0_35px_rgba(0,245,176,0.22)] grid grid-cols-1 sm:grid-cols-12 gap-2.5 items-center">
             
             {/* Control 1 — Location search */}
