@@ -13,7 +13,8 @@ import {
   Zap, 
   CreditCard,
   Calendar,
-  Coins
+  Coins,
+  Layers
 } from 'lucide-react';
 
 import playerImg from '../assets/player_cutout.png';
@@ -345,9 +346,134 @@ export default function TurfBookHero() {
         </div>
 
         {/* ========================================================
+            FEATURE-STATISTICS SECTION (MATCHING REFERENCE UI)
+        ======================================================== */}
+        <div className={`relative z-20 w-full mt-6 sm:mt-10 lg:mt-12 transition-all duration-700 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+
+          {/* Cards Row: Left Card | Center Open Space for Footballer & Ball | Right Card */}
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-center">
+
+            {/* Left Statistics Card */}
+            <div className="lg:col-span-5 flex justify-start">
+              <div className="w-full max-w-[490px] rounded-[20px] bg-[#00251A]/85 border border-[#00F5B0]/40 backdrop-blur-md shadow-[0_0_20px_rgba(0,245,176,0.18)] px-4 py-3 sm:px-5 sm:py-3.5 flex items-center justify-between gap-3 sm:gap-4 select-none">
+                
+                {/* Stat 1: Football Pitch - 120+ Verified Turfs */}
+                <div className="flex items-center gap-2.5 sm:gap-3">
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6 text-[#00F5B0] shrink-0" viewBox="0 0 32 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="2" width="28" height="20" rx="3" />
+                    <line x1="16" y1="2" x2="16" y2="22" />
+                    <circle cx="16" cy="12" r="4" />
+                    <path d="M2 7 h5 v10 h-5" />
+                    <path d="M30 7 h-5 v10 h5" />
+                  </svg>
+                  <div className="flex flex-col">
+                    <span className="text-xs sm:text-sm font-extrabold text-white tracking-tight leading-none">
+                      120+
+                    </span>
+                    <span className="text-[10px] sm:text-[11px] font-medium text-[#D0DED8] mt-1 whitespace-nowrap leading-none">
+                      Verified Turfs
+                    </span>
+                  </div>
+                </div>
+
+                {/* Vertical Divider */}
+                <div className="w-[1px] h-7 bg-white/15 shrink-0" />
+
+                {/* Stat 2: Layers - 6+ Sports Categories */}
+                <div className="flex items-center gap-2.5 sm:gap-3">
+                  <Layers className="w-5 h-5 text-[#00F5B0] shrink-0" />
+                  <div className="flex flex-col">
+                    <span className="text-xs sm:text-sm font-extrabold text-white tracking-tight leading-none">
+                      6+
+                    </span>
+                    <span className="text-[10px] sm:text-[11px] font-medium text-[#D0DED8] mt-1 whitespace-nowrap leading-none">
+                      Sports Categories
+                    </span>
+                  </div>
+                </div>
+
+                {/* Vertical Divider */}
+                <div className="w-[1px] h-7 bg-white/15 shrink-0" />
+
+                {/* Stat 3: Location Pin - Venues Near You */}
+                <div className="flex items-center gap-2.5 sm:gap-3">
+                  <MapPin className="w-5 h-5 text-[#00F5B0] shrink-0" />
+                  <div className="flex flex-col">
+                    <span className="text-xs sm:text-sm font-extrabold text-white tracking-tight leading-none">
+                      Venues
+                    </span>
+                    <span className="text-[10px] sm:text-[11px] font-medium text-[#D0DED8] mt-1 whitespace-nowrap leading-none">
+                      Near You
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            {/* Center Spacer: leaves clear room for the player's kicking foot & football */}
+            <div className="hidden lg:block lg:col-span-2 pointer-events-none" />
+
+            {/* Right Statistics Card */}
+            <div className="lg:col-span-5 flex justify-end">
+              <div className="w-full max-w-[490px] rounded-[20px] bg-[#00251A]/85 border border-[#00F5B0]/40 backdrop-blur-md shadow-[0_0_20px_rgba(0,245,176,0.18)] px-4 py-3 sm:px-5 sm:py-3.5 flex items-center justify-between gap-3 sm:gap-4 select-none">
+                
+                {/* Stat 1: Lightning - Instant Slot Booking */}
+                <div className="flex items-center gap-2.5 sm:gap-3">
+                  <Zap className="w-5 h-5 text-[#FFC400] fill-[#FFC400] shrink-0" />
+                  <div className="flex flex-col">
+                    <span className="text-xs sm:text-sm font-extrabold text-white tracking-tight leading-none">
+                      Instant
+                    </span>
+                    <span className="text-[10px] sm:text-[11px] font-medium text-[#D0DED8] mt-1 whitespace-nowrap leading-none">
+                      Slot Booking
+                    </span>
+                  </div>
+                </div>
+
+                {/* Vertical Divider */}
+                <div className="w-[1px] h-7 bg-white/15 shrink-0" />
+
+                {/* Stat 2: Shield Check - Verified Venues */}
+                <div className="flex items-center gap-2.5 sm:gap-3">
+                  <ShieldCheck className="w-5 h-5 text-[#00F5B0] shrink-0" />
+                  <div className="flex flex-col">
+                    <span className="text-xs sm:text-sm font-extrabold text-white tracking-tight leading-none">
+                      Verified
+                    </span>
+                    <span className="text-[10px] sm:text-[11px] font-medium text-[#D0DED8] mt-1 whitespace-nowrap leading-none">
+                      Venues
+                    </span>
+                  </div>
+                </div>
+
+                {/* Vertical Divider */}
+                <div className="w-[1px] h-7 bg-white/15 shrink-0" />
+
+                {/* Stat 3: Coins - ₹0 Platform Fee */}
+                <div className="flex items-center gap-2.5 sm:gap-3">
+                  <Coins className="w-5 h-5 text-[#FFC400] shrink-0" />
+                  <div className="flex flex-col">
+                    <span className="text-xs sm:text-sm font-extrabold text-white tracking-tight leading-none">
+                      ₹0
+                    </span>
+                    <span className="text-[10px] sm:text-[11px] font-medium text-[#D0DED8] mt-1 whitespace-nowrap leading-none">
+                      Platform Fee
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* ========================================================
             SECTION 8: TURF SEARCH AND BOOKING BAR
         ======================================================== */}
-        <div className={`relative z-30 mt-16 sm:mt-20 lg:mt-[165px] transition-all duration-700 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+        <div className={`relative z-30 mt-4 sm:mt-5 lg:mt-6 transition-all duration-700 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
           <div className="p-2 sm:p-2.5 rounded-[20px] bg-[#00251A]/85 border border-[#00F5B0]/30 backdrop-blur-xl shadow-[0_0_35px_rgba(0,245,176,0.22)] grid grid-cols-1 sm:grid-cols-12 gap-2.5 items-center">
             
             {/* Control 1 — Location search */}
