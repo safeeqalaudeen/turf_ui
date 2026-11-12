@@ -162,26 +162,15 @@ export default function FeaturedVenues() {
     <section className="relative w-full bg-[#00130D] text-white pt-10 pb-16 lg:pt-14 lg:pb-24 overflow-hidden select-none border-t border-white/5">
       
       {/* ========================================================
-          BACKGROUND & STADIUM LIGHTING COMPOSITION
+          BACKGROUND & STADIUM LIGHTING COMPOSITION (100% SEAMLESS & SMOOTH)
       ======================================================== */}
-      {/* Subtle deep stadium gradient */}
+      {/* Seamless deep stadium gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#00130D] via-[#001E14] to-[#00130D] pointer-events-none" />
 
-      {/* Atmospheric floodlight glows */}
-      <div className="absolute top-0 left-1/4 w-[600px] h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(0,245,176,0.08)_0%,transparent_70%)] pointer-events-none" />
-      <div className="absolute top-10 right-1/4 w-[600px] h-[350px] bg-[radial-gradient(ellipse_at_top,rgba(200,255,0,0.05)_0%,transparent_70%)] pointer-events-none" />
-
-      {/* Realistic stadium grass & football in upper right */}
-      <div className="absolute top-0 right-0 w-[420px] sm:w-[500px] lg:w-[580px] h-[220px] pointer-events-none select-none z-0 opacity-80 overflow-hidden">
-        <img
-          src="/assets/explore_sports_full_bg.jpg"
-          alt=""
-          className="w-full h-full object-cover object-right-top mix-blend-screen filter brightness-95"
-        />
-        {/* Soft gradient blend so it fades naturally into the background */}
-        <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#00130D]/70 to-[#00130D]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#00130D] via-transparent to-transparent" />
-      </div>
+      {/* Atmospheric floodlight glows - completely smooth radial blends with zero edges */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(0,245,176,0.06),transparent_70%)] pointer-events-none" />
+      <div className="absolute top-0 right-10 w-[600px] h-[350px] bg-[radial-gradient(circle_at_center,rgba(0,245,176,0.04),transparent_65%)] pointer-events-none" />
+      <div className="absolute top-10 left-10 w-[500px] h-[300px] bg-[radial-gradient(circle_at_center,rgba(200,255,0,0.03),transparent_65%)] pointer-events-none" />
 
       {/* ========================================================
           MAIN CONTENT CONTAINER
