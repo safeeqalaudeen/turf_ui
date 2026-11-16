@@ -14,6 +14,15 @@ import {
 export default function FeaturedVenues() {
   const [favorites, setFavorites] = useState({});
   const [activeCardId, setActiveCardId] = useState(1);
+  const [selectedFilter, setSelectedFilter] = useState('all');
+
+  const filterOptions = [
+    { id: 'all', label: 'All Turfs', icon: null },
+    { id: 'football', label: 'Football', icon: '⚽' },
+    { id: 'cricket', label: 'Cricket', icon: '🏏' },
+    { id: 'badminton', label: 'Badminton', icon: '🏸' },
+    { id: 'instant', label: 'Instant Slots', icon: '⚡' },
+  ];
 
   const toggleFavorite = (id) => {
     setFavorites(prev => ({ ...prev, [id]: !prev[id] }));
@@ -177,11 +186,11 @@ export default function FeaturedVenues() {
       ======================================================== */}
       <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-8">
         
-        {/* Header Row: Badge, Title & Description on left, "Explore All Turfs" on right */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-8 sm:mb-10">
+        {/* Header Row: Badge, Title on left, Quick Filter Pills in middle, Explore Button on right */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-7 sm:mb-9">
           
           {/* Left Title Area */}
-          <div className="max-w-3xl">
+          <div className="max-w-xl">
             {/* FEATURED VENUES Eyebrow Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#002619]/90 border border-[#00F5B0]/30 shadow-[0_0_15px_rgba(0,245,176,0.15)] mb-3 sm:mb-4">
               <span className="text-xs">🏆</span>
@@ -191,7 +200,7 @@ export default function FeaturedVenues() {
             </div>
 
             {/* Main Heading: "Top-Rated Sports Turfs" */}
-            <h2 className="text-2xl sm:text-3xl lg:text-[42px] font-black tracking-tight text-white flex flex-wrap items-center leading-none">
+            <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-black tracking-tight text-white flex flex-wrap items-center leading-none">
               <span>Top-Rated</span>
               <div className="relative inline-block ml-2.5 sm:ml-3">
                 <span className="bg-gradient-to-r from-[#00F5B0] via-[#C8FF00] to-[#00F5B0] bg-clip-text text-transparent">
@@ -199,7 +208,7 @@ export default function FeaturedVenues() {
                 </span>
                 {/* Curved yellow underline */}
                 <svg
-                  className="w-[140px] sm:w-[180px] lg:w-[210px] h-3 sm:h-3.5 absolute -bottom-1.5 sm:-bottom-2 left-0 text-[#FFC400] pointer-events-none"
+                  className="w-[140px] sm:w-[180px] lg:w-[200px] h-3 sm:h-3.5 absolute -bottom-1.5 sm:-bottom-2 left-0 text-[#FFC400] pointer-events-none"
                   viewBox="0 0 160 14"
                   fill="none"
                 >
@@ -214,19 +223,44 @@ export default function FeaturedVenues() {
             </h2>
 
             {/* Subtitle Description */}
-            <p className="text-xs sm:text-[14px] text-[#A5C0B3] font-normal leading-relaxed mt-3 max-w-2xl">
+            <p className="text-xs sm:text-[13.5px] text-[#A5C0B3] font-normal leading-relaxed mt-2.5">
               Handpicked, quality-inspected venues with floodlights, changing rooms & instant slot booking
             </p>
           </div>
 
-          {/* Right Action: "Explore All Turfs →" Outlined Pill Button */}
-          <div className="sm:self-end">
+          {/* Center & Right Area: Quick Filter Pills + "Explore All Turfs" Button */}
+          <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 lg:justify-end">
+            {/* Interactive Quick Filter Pills */}
+            <div className="flex items-center gap-1 sm:gap-1.5 p-1 rounded-full bg-[#001D14]/90 border border-[#00F5B0]/25 backdrop-blur-md shadow-md">
+              {filterOptions.map((filter) => {
+                const isSelected = selectedFilter === filter.id;
+                return (
+                  <button
+                    key={filter.id}
+                    onClick={() => setSelectedFilter(filter.id)}
+                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                      isSelected
+                        ? 'bg-[#00F5B0] text-[#00130D] shadow-[0_0_15px_rgba(0,245,176,0.4)] scale-[1.02]'
+                        : 'text-[#A5C0B3] hover:text-white hover:bg-white/5'
+                    }`}
+                  >
+                    {filter.icon && <span className="text-[11px]">{filter.icon}</span>}
+                    <span>{filter.label}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Subtle Divider */}
+            <div className="h-6 w-[1px] bg-white/10 hidden sm:block mx-0.5" />
+
+            {/* "Explore All Turfs →" Outlined Pill Button */}
             <a
               href="#explore"
-              className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-full border border-[#00F5B0]/50 hover:border-[#00F5B0] bg-[#002619]/80 hover:bg-[#003825] text-xs sm:text-[13px] font-bold text-white backdrop-blur-md transition-all shadow-[0_0_15px_rgba(0,245,176,0.15)] hover:shadow-[0_0_22px_rgba(0,245,176,0.35)] group cursor-pointer"
+              className="inline-flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full border border-[#00F5B0]/50 hover:border-[#00F5B0] bg-[#002619]/80 hover:bg-[#003825] text-xs sm:text-[12.5px] font-bold text-white backdrop-blur-md transition-all shadow-[0_0_15px_rgba(0,245,176,0.15)] hover:shadow-[0_0_22px_rgba(0,245,176,0.35)] group cursor-pointer"
             >
               <span>Explore All Turfs</span>
-              <ArrowRight className="w-4 h-4 text-[#00F5B0] group-hover:translate-x-1 transition-transform stroke-[2.5]" />
+              <ArrowRight className="w-3.5 h-3.5 text-[#00F5B0] group-hover:translate-x-1 transition-transform stroke-[2.5]" />
             </a>
           </div>
 
@@ -236,7 +270,15 @@ export default function FeaturedVenues() {
             VENUES GRID: 3 COLUMNS PER ROW (MATCHING REFERENCE)
         ======================================================== */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-          {venues.map((venue) => {
+          {venues
+            .filter((venue) => {
+              if (selectedFilter === 'all') return true;
+              if (selectedFilter === 'instant') return venue.instantSlot;
+              return venue.sports.some(
+                (s) => s.name.toLowerCase() === selectedFilter.toLowerCase()
+              );
+            })
+            .map((venue) => {
             const isActive = activeCardId === venue.id;
             const isFav = favorites[venue.id];
 

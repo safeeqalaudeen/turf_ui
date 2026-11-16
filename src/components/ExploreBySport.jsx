@@ -9,42 +9,42 @@ export default function ExploreBySport() {
       id: 'cricket',
       name: 'Cricket',
       subtitle: 'Box & Astro Pitch',
-      image: '/assets/sport_cricket_3d.png',
+      image: '/assets/sport_cricket_4k.png',
       alt: '3D cricket bat and red cricket ball'
     },
     {
       id: 'football',
       name: 'Football',
       subtitle: '5v5, 7v7 & 11v11',
-      image: '/assets/sport_football_3d.png',
+      image: '/assets/sport_football_4k.png',
       alt: '3D football'
     },
     {
       id: 'badminton',
       name: 'Badminton',
       subtitle: 'BWF Synthetic Courts',
-      image: '/assets/sport_badminton_3d.png',
+      image: '/assets/sport_badminton_4k.png',
       alt: '3D badminton shuttlecock'
     },
     {
       id: 'tennis',
       name: 'Tennis',
       subtitle: 'Hard & Clay Courts',
-      image: '/assets/sport_tennis_3d.png',
+      image: '/assets/sport_tennis_4k.png',
       alt: '3D bright-yellow tennis ball'
     },
     {
       id: 'basketball',
       name: 'Basketball',
       subtitle: 'Pro Acrylic Courts',
-      image: '/assets/sport_basketball_3d.png',
+      image: '/assets/sport_basketball_4k.png',
       alt: '3D orange basketball'
     },
     {
       id: 'hockey',
       name: 'Hockey',
       subtitle: 'Water & Astro Turf',
-      image: '/assets/sport_hockey_3d.png',
+      image: '/assets/sport_hockey_4k.png',
       alt: '3D hockey stick and white ball'
     }
   ];
