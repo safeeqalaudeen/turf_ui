@@ -168,7 +168,7 @@ export default function FeaturedVenues() {
   };
 
   return (
-    <section className="relative w-full bg-[#00130D] text-white pt-10 pb-16 lg:pt-14 lg:pb-24 overflow-hidden select-none border-t border-white/5">
+    <section className="relative w-full bg-[#00130D] text-white pt-10 pb-8 sm:pb-10 lg:pb-12 overflow-hidden border-t border-white/5">
       
       {/* ========================================================
           BACKGROUND & STADIUM LIGHTING COMPOSITION (100% SEAMLESS & SMOOTH)

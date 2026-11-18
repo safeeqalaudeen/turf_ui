@@ -60,13 +60,17 @@ export default function TurfBookHero() {
       <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#00130D]/80 to-transparent pointer-events-none z-0" />
 
       {/* Far-Left Stadium Floodlight - Angled diagonally towards center footballer */}
-      <div className="absolute top-14 sm:top-16 lg:top-20 left-2 sm:left-5 md:left-7 lg:left-8 w-28 sm:w-36 md:w-44 lg:w-48 pointer-events-none select-none z-10 opacity-90 drop-shadow-[0_0_25px_rgba(0,245,176,0.35)]">
+      <div className="absolute top-14 sm:top-16 lg:top-20 left-2 sm:left-5 md:left-7 lg:left-8 w-28 sm:w-36 md:w-44 lg:w-48 pointer-events-none select-none z-10 opacity-90 animate-floodlight-left">
         <img src={floodlightLeft} alt="Stadium floodlight tower" className="w-full h-auto object-contain" />
+        {/* Ambient subtle light cone */}
+        <div className="absolute -inset-10 bg-gradient-to-br from-[#00F5B0]/15 via-transparent to-transparent blur-2xl pointer-events-none" />
       </div>
 
       {/* Far-Right Stadium Floodlight - Angled diagonally towards center footballer */}
-      <div className="absolute top-14 sm:top-16 lg:top-20 right-2 sm:right-5 md:right-7 lg:right-8 w-28 sm:w-36 md:w-44 lg:w-48 pointer-events-none select-none z-10 opacity-90 drop-shadow-[0_0_25px_rgba(0,245,176,0.35)]">
+      <div className="absolute top-14 sm:top-16 lg:top-20 right-2 sm:right-5 md:right-7 lg:right-8 w-28 sm:w-36 md:w-44 lg:w-48 pointer-events-none select-none z-10 opacity-90 animate-floodlight-right">
         <img src={floodlightRight} alt="Stadium floodlight tower" className="w-full h-auto object-contain" />
+        {/* Ambient subtle light cone */}
+        <div className="absolute -inset-10 bg-gradient-to-bl from-[#00F5B0]/15 via-transparent to-transparent blur-2xl pointer-events-none" />
       </div>
 
       {/* ========================================================
@@ -76,7 +80,7 @@ export default function TurfBookHero() {
         <div className="flex items-center justify-between h-16 border-b border-white/5">
           
           {/* Left section: Logo & Title */}
-          <div className="flex items-center gap-3 cursor-pointer group select-none">
+          <div className="flex items-center gap-3 cursor-pointer group">
             {/* Rounded-square neon-green location-pin logo */}
             <div className="w-10 h-10 rounded-[12px] bg-[#00F5B0] shadow-[0_0_20px_rgba(0,245,176,0.65)] flex items-center justify-center transition-transform group-hover:scale-105">
               <MapPin className="w-5 h-5 text-[#00130D]" fill="#00130D" />
@@ -197,13 +201,13 @@ export default function TurfBookHero() {
                 </span>
                 
                 <div className="relative inline-block">
-                  <span className="text-4xl sm:text-5xl lg:text-[56px] font-black italic tracking-tight bg-gradient-to-r from-[#00F5B0] via-[#C8FF00] to-[#FFC400] bg-clip-text text-transparent">
+                  <span className="text-4xl sm:text-5xl lg:text-[56px] font-black italic tracking-tight bg-gradient-to-r from-[#00F5B0] via-[#C8FF00] to-[#FFC400] bg-clip-text text-transparent animate-gradient-shimmer">
                     Turfs
                   </span>
                   
                   {/* Small curved neon-green underline swoosh below "Turfs" */}
                   <svg 
-                    className="w-[105px] sm:w-[125px] lg:w-[145px] h-4 absolute -bottom-2 sm:-bottom-2.5 left-0 text-[#00F5B0] pointer-events-none" 
+                    className="w-[105px] sm:w-[125px] lg:w-[145px] h-4 absolute -bottom-2 sm:-bottom-2.5 left-0 text-[#00F5B0] pointer-events-none drop-shadow-[0_0_8px_#00F5B0]" 
                     viewBox="0 0 150 14" 
                     fill="none"
                   >
@@ -231,15 +235,15 @@ export default function TurfBookHero() {
             {/* SECTION 6: Hero Action Buttons */}
             <div className={`flex flex-wrap items-center gap-3.5 pt-1 transition-all duration-700 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}>
               {/* Primary CTA */}
-              <button className="btn-yellow-glow px-7 py-3 rounded-full text-xs sm:text-sm font-extrabold flex items-center gap-2 tracking-wide cursor-pointer">
+              <button className="btn-yellow-glow btn-shimmer px-7 py-3 rounded-full text-xs sm:text-sm font-extrabold flex items-center gap-2 tracking-wide cursor-pointer group hover:scale-[1.02] active:scale-[0.98] transition-all">
                 <span>Find & Book a Turf</span>
-                <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+                <ArrowRight className="w-4 h-4 stroke-[2.5] group-hover:translate-x-1.5 transition-transform" />
               </button>
 
               {/* Secondary CTA */}
-              <button className="px-6 py-3 rounded-full bg-[#00251A]/60 hover:bg-[#003A29]/80 border border-white/30 hover:border-white/60 text-xs sm:text-sm font-bold text-white flex items-center gap-2.5 backdrop-blur-md transition-all cursor-pointer">
-                <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
-                  <Play className="w-2.5 h-2.5 fill-white text-white ml-0.5" />
+              <button className="px-6 py-3 rounded-full bg-[#00251A]/60 hover:bg-[#003A29]/90 border border-white/30 hover:border-[#00F5B0]/60 text-xs sm:text-sm font-bold text-white flex items-center gap-2.5 backdrop-blur-md transition-all cursor-pointer group hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-[0_0_20px_rgba(0,245,176,0.2)]">
+                <div className="w-5 h-5 rounded-full bg-white/20 group-hover:bg-[#00F5B0] group-hover:text-[#00130D] flex items-center justify-center transition-colors">
+                  <Play className="w-2.5 h-2.5 fill-white group-hover:fill-[#00130D] text-white group-hover:text-[#00130D] ml-0.5 transition-colors" />
                 </div>
                 <span>How It Works</span>
               </button>
@@ -250,12 +254,16 @@ export default function TurfBookHero() {
           {/* ========================================================
               SECTION 5: Football Player (Layered Behind Headline)
           ======================================================== */}
-          <div className="hidden lg:block absolute top-[-22px] xl:top-[-26px] left-[27%] xl:left-[29%] w-[400px] xl:w-[440px] pointer-events-none z-10 select-none transition-all duration-1000">
-            <img 
-              src={playerImg} 
-              alt="Realistic football player #10 kicking ball on floodlit grass" 
-              className="w-full h-auto object-contain select-none"
-            />
+          <div className={`hidden lg:block absolute top-[-22px] xl:top-[-26px] left-[27%] xl:left-[29%] w-[400px] xl:w-[440px] pointer-events-none z-10 select-none transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+            <div className="relative animate-player-float">
+              <img 
+                src={playerImg} 
+                alt="Realistic football player #10 kicking ball on floodlit grass" 
+                className="w-full h-auto object-contain select-none drop-shadow-[0_20px_40px_rgba(0,0,0,0.75)]"
+              />
+              {/* Dynamic subtle ambient stadium glow behind player */}
+              <div className="absolute inset-x-8 top-16 bottom-8 bg-[#00F5B0]/15 blur-3xl -z-10 rounded-full" />
+            </div>
           </div>
 
           {/* ========================================================
@@ -263,7 +271,7 @@ export default function TurfBookHero() {
           ======================================================== */}
           <div className={`lg:col-span-5 relative z-20 flex justify-center lg:justify-end perspective-container transition-all duration-700 delay-200 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             <div className="relative w-full max-w-[490px] lg:-translate-x-8">
-              <div className="relative w-full rounded-[24px] overflow-hidden border-2 border-[#00F5B0]/80 bg-[#00251A] tilted-3d-card group select-none">
+              <div className="relative w-full rounded-[24px] overflow-hidden border-2 border-[#00F5B0]/80 bg-[#00251A] tilted-3d-card group">
               
               {/* Aerial photograph of realistic football turf at night */}
               <div className="relative aspect-[16/10] overflow-hidden">
@@ -355,11 +363,11 @@ export default function TurfBookHero() {
 
             {/* Left Statistics Card */}
             <div className="lg:col-span-5 flex justify-start">
-              <div className="w-full max-w-[490px] rounded-[20px] bg-[#00251A]/85 border border-[#00F5B0]/40 backdrop-blur-md shadow-[0_0_20px_rgba(0,245,176,0.18)] px-4 py-3 sm:px-5 sm:py-3.5 flex items-center justify-between gap-3 sm:gap-4 select-none">
+              <div className="w-full max-w-[490px] rounded-[20px] bg-[#00251A]/85 border border-[#00F5B0]/40 hover:border-[#00F5B0] backdrop-blur-md shadow-[0_0_20px_rgba(0,245,176,0.18)] hover:shadow-[0_0_30px_rgba(0,245,176,0.32)] px-4 py-3 sm:px-5 sm:py-3.5 flex items-center justify-between gap-3 sm:gap-4 transition-all duration-300 hover:-translate-y-1 group">
                 
                 {/* Stat 1: Football Pitch - 120+ Verified Turfs */}
-                <div className="flex items-center gap-2.5 sm:gap-3">
-                  <svg className="w-5 h-5 sm:w-6 sm:h-6 text-[#00F5B0] shrink-0" viewBox="0 0 32 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <div className="flex items-center gap-2.5 sm:gap-3 cursor-pointer">
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6 text-[#00F5B0] shrink-0 group-hover:scale-110 transition-transform duration-300" viewBox="0 0 32 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="2" y="2" width="28" height="20" rx="3" />
                     <line x1="16" y1="2" x2="16" y2="22" />
                     <circle cx="16" cy="12" r="4" />
@@ -367,7 +375,7 @@ export default function TurfBookHero() {
                     <path d="M30 7 h-5 v10 h5" />
                   </svg>
                   <div className="flex flex-col">
-                    <span className="text-xs sm:text-sm font-extrabold text-white tracking-tight leading-none">
+                    <span className="text-xs sm:text-sm font-extrabold text-white tracking-tight leading-none group-hover:text-[#00F5B0] transition-colors">
                       120+
                     </span>
                     <span className="text-[10px] sm:text-[11px] font-medium text-[#D0DED8] mt-1 whitespace-nowrap leading-none">
@@ -380,10 +388,10 @@ export default function TurfBookHero() {
                 <div className="w-[1px] h-7 bg-white/15 shrink-0" />
 
                 {/* Stat 2: Layers - 6+ Sports Categories */}
-                <div className="flex items-center gap-2.5 sm:gap-3">
-                  <Layers className="w-5 h-5 text-[#00F5B0] shrink-0" />
+                <div className="flex items-center gap-2.5 sm:gap-3 cursor-pointer">
+                  <Layers className="w-5 h-5 text-[#00F5B0] shrink-0 group-hover:scale-110 transition-transform duration-300" />
                   <div className="flex flex-col">
-                    <span className="text-xs sm:text-sm font-extrabold text-white tracking-tight leading-none">
+                    <span className="text-xs sm:text-sm font-extrabold text-white tracking-tight leading-none group-hover:text-[#00F5B0] transition-colors">
                       6+
                     </span>
                     <span className="text-[10px] sm:text-[11px] font-medium text-[#D0DED8] mt-1 whitespace-nowrap leading-none">
@@ -396,8 +404,8 @@ export default function TurfBookHero() {
                 <div className="w-[1px] h-7 bg-white/15 shrink-0" />
 
                 {/* Stat 3: Location Pin - Venues Near You */}
-                <div className="flex items-center gap-2.5 sm:gap-3">
-                  <MapPin className="w-5 h-5 text-[#00F5B0] shrink-0" />
+                <div className="flex items-center gap-2.5 sm:gap-3 cursor-pointer">
+                  <MapPin className="w-5 h-5 text-[#00F5B0] shrink-0 group-hover:scale-110 transition-transform duration-300" />
                   <div className="flex flex-col">
                     <span className="text-xs sm:text-sm font-extrabold text-white tracking-tight leading-none">
                       Venues
@@ -416,13 +424,13 @@ export default function TurfBookHero() {
 
             {/* Right Statistics Card */}
             <div className="lg:col-span-5 flex justify-end">
-              <div className="w-full max-w-[490px] rounded-[20px] bg-[#00251A]/85 border border-[#00F5B0]/40 backdrop-blur-md shadow-[0_0_20px_rgba(0,245,176,0.18)] px-4 py-3 sm:px-5 sm:py-3.5 flex items-center justify-between gap-3 sm:gap-4 select-none">
+              <div className="w-full max-w-[490px] rounded-[20px] bg-[#00251A]/85 border border-[#00F5B0]/40 hover:border-[#00F5B0] backdrop-blur-md shadow-[0_0_20px_rgba(0,245,176,0.18)] hover:shadow-[0_0_30px_rgba(0,245,176,0.32)] px-4 py-3 sm:px-5 sm:py-3.5 flex items-center justify-between gap-3 sm:gap-4 transition-all duration-300 hover:-translate-y-1 group">
                 
                 {/* Stat 1: Lightning - Instant Slot Booking */}
-                <div className="flex items-center gap-2.5 sm:gap-3">
-                  <Zap className="w-5 h-5 text-[#FFC400] fill-[#FFC400] shrink-0" />
+                <div className="flex items-center gap-2.5 sm:gap-3 cursor-pointer">
+                  <Zap className="w-5 h-5 text-[#FFC400] fill-[#FFC400] shrink-0 group-hover:scale-110 transition-transform duration-300 animate-pulse" />
                   <div className="flex flex-col">
-                    <span className="text-xs sm:text-sm font-extrabold text-white tracking-tight leading-none">
+                    <span className="text-xs sm:text-sm font-extrabold text-white tracking-tight leading-none group-hover:text-[#FFC400] transition-colors">
                       Instant
                     </span>
                     <span className="text-[10px] sm:text-[11px] font-medium text-[#D0DED8] mt-1 whitespace-nowrap leading-none">
@@ -435,10 +443,10 @@ export default function TurfBookHero() {
                 <div className="w-[1px] h-7 bg-white/15 shrink-0" />
 
                 {/* Stat 2: Shield Check - Verified Venues */}
-                <div className="flex items-center gap-2.5 sm:gap-3">
-                  <ShieldCheck className="w-5 h-5 text-[#00F5B0] shrink-0" />
+                <div className="flex items-center gap-2.5 sm:gap-3 cursor-pointer">
+                  <ShieldCheck className="w-5 h-5 text-[#00F5B0] shrink-0 group-hover:scale-110 transition-transform duration-300" />
                   <div className="flex flex-col">
-                    <span className="text-xs sm:text-sm font-extrabold text-white tracking-tight leading-none">
+                    <span className="text-xs sm:text-sm font-extrabold text-white tracking-tight leading-none group-hover:text-[#00F5B0] transition-colors">
                       Verified
                     </span>
                     <span className="text-[10px] sm:text-[11px] font-medium text-[#D0DED8] mt-1 whitespace-nowrap leading-none">
@@ -451,10 +459,10 @@ export default function TurfBookHero() {
                 <div className="w-[1px] h-7 bg-white/15 shrink-0" />
 
                 {/* Stat 3: Coins - ₹0 Platform Fee */}
-                <div className="flex items-center gap-2.5 sm:gap-3">
-                  <Coins className="w-5 h-5 text-[#FFC400] shrink-0" />
+                <div className="flex items-center gap-2.5 sm:gap-3 cursor-pointer">
+                  <Coins className="w-5 h-5 text-[#FFC400] shrink-0 group-hover:scale-110 transition-transform duration-300" />
                   <div className="flex flex-col">
-                    <span className="text-xs sm:text-sm font-extrabold text-white tracking-tight leading-none">
+                    <span className="text-xs sm:text-sm font-extrabold text-white tracking-tight leading-none group-hover:text-[#FFC400] transition-colors">
                       ₹0
                     </span>
                     <span className="text-[10px] sm:text-[11px] font-medium text-[#D0DED8] mt-1 whitespace-nowrap leading-none">
@@ -474,63 +482,65 @@ export default function TurfBookHero() {
             SECTION 8: TURF SEARCH AND BOOKING BAR
         ======================================================== */}
         <div className={`relative z-30 mt-4 sm:mt-5 lg:mt-6 transition-all duration-700 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-          <div className="p-2 sm:p-2.5 rounded-[20px] bg-[#00251A]/85 border border-[#00F5B0]/30 backdrop-blur-xl shadow-[0_0_35px_rgba(0,245,176,0.22)] grid grid-cols-1 sm:grid-cols-12 gap-2.5 items-center">
-            
-            {/* Control 1 — Location search */}
-            <div className="sm:col-span-5 flex items-center gap-3 px-4 py-2.5 sm:py-3 bg-black/55 rounded-[14px] border border-white/10 focus-within:border-[#00F5B0]/50 transition-colors">
-              <MapPin className="w-4 h-4 text-[#00F5B0] shrink-0" />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search by city, locality, or turf name..."
-                className="w-full bg-transparent text-xs sm:text-sm text-white placeholder-[#D0DED8]/60 focus:outline-none"
-              />
-            </div>
-
-            {/* Control 2 — Sports selector */}
-            <div className="sm:col-span-3 relative">
-              <button
-                type="button"
-                onClick={() => setSportsDropdown(!sportsDropdown)}
-                className="w-full flex items-center justify-between px-4 py-2.5 sm:py-3 bg-black/55 rounded-[14px] border border-white/10 hover:border-[#00F5B0]/40 transition-colors text-left cursor-pointer"
-              >
-                <div className="flex items-center gap-2.5">
-                  {/* Clean SVG Sports Ball outline icon matching reference */}
-                  <svg className="w-4 h-4 text-[#00F5B0] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
-                    <path d="M2 12h20" />
-                  </svg>
-                  <span className="text-xs sm:text-sm font-medium text-white truncate">
-                    {selectedSport}
-                  </span>
-                </div>
-                <ChevronDown className="w-4 h-4 text-[#D0DED8] shrink-0" />
-              </button>
-            </div>
-
-            {/* Control 3 — Date selector */}
-            <div className="sm:col-span-2">
-              <div className="w-full flex items-center justify-between px-4 py-2.5 sm:py-3 bg-black/55 rounded-[14px] border border-white/10 hover:border-[#00F5B0]/40 transition-colors cursor-pointer">
-                <div className="flex items-center gap-2.5">
-                  <Calendar className="w-4 h-4 text-[#00F5B0] shrink-0" />
-                  <span className="text-xs sm:text-sm font-medium text-white truncate">
-                    {selectedDate}
-                  </span>
-                </div>
-                <ChevronDown className="w-4 h-4 text-[#D0DED8] shrink-0" />
+          <div className="relative p-[1.5px] rounded-[22px] search-border-beam shadow-[0_0_35px_rgba(0,245,176,0.25)]">
+            <div className="p-2 sm:p-2.5 rounded-[20.5px] bg-[#00251A]/90 backdrop-blur-xl grid grid-cols-1 sm:grid-cols-12 gap-2.5 items-center">
+              
+              {/* Control 1 — Location search */}
+              <div className="sm:col-span-5 flex items-center gap-3 px-4 py-2.5 sm:py-3 bg-black/60 rounded-[14px] border border-white/10 focus-within:border-[#00F5B0] focus-within:shadow-[0_0_15px_rgba(0,245,176,0.25)] transition-all">
+                <MapPin className="w-4 h-4 text-[#00F5B0] shrink-0" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search by city, locality, or turf name..."
+                  className="w-full bg-transparent text-xs sm:text-sm text-white placeholder-[#D0DED8]/60 focus:outline-none"
+                />
               </div>
-            </div>
 
-            {/* Control 4 — Search button */}
-            <div className="sm:col-span-2">
-              <button className="btn-yellow-glow w-full py-2.5 sm:py-3 px-4 rounded-[14px] text-xs sm:text-sm font-extrabold flex items-center justify-center gap-2 cursor-pointer">
-                <span>Find Slots</span>
-                <ArrowRight className="w-4 h-4 stroke-[3]" />
-              </button>
-            </div>
+              {/* Control 2 — Sports selector */}
+              <div className="sm:col-span-3 relative">
+                <button
+                  type="button"
+                  onClick={() => setSportsDropdown(!sportsDropdown)}
+                  className="w-full flex items-center justify-between px-4 py-2.5 sm:py-3 bg-black/60 rounded-[14px] border border-white/10 hover:border-[#00F5B0]/60 hover:shadow-[0_0_12px_rgba(0,245,176,0.18)] transition-all text-left cursor-pointer"
+                >
+                  <div className="flex items-center gap-2.5">
+                    {/* Clean SVG Sports Ball outline icon matching reference */}
+                    <svg className="w-4 h-4 text-[#00F5B0] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                      <path d="M2 12h20" />
+                    </svg>
+                    <span className="text-xs sm:text-sm font-medium text-white truncate">
+                      {selectedSport}
+                    </span>
+                  </div>
+                  <ChevronDown className={`w-4 h-4 text-[#D0DED8] shrink-0 transition-transform duration-200 ${sportsDropdown ? 'rotate-180 text-[#00F5B0]' : ''}`} />
+                </button>
+              </div>
 
+              {/* Control 3 — Date selector */}
+              <div className="sm:col-span-2">
+                <div className="w-full flex items-center justify-between px-4 py-2.5 sm:py-3 bg-black/60 rounded-[14px] border border-white/10 hover:border-[#00F5B0]/60 hover:shadow-[0_0_12px_rgba(0,245,176,0.18)] transition-all cursor-pointer">
+                  <div className="flex items-center gap-2.5">
+                    <Calendar className="w-4 h-4 text-[#00F5B0] shrink-0" />
+                    <span className="text-xs sm:text-sm font-medium text-white truncate">
+                      {selectedDate}
+                    </span>
+                  </div>
+                  <ChevronDown className="w-4 h-4 text-[#D0DED8] shrink-0" />
+                </div>
+              </div>
+
+              {/* Control 4 — Search button */}
+              <div className="sm:col-span-2">
+                <button className="btn-yellow-glow btn-shimmer w-full py-2.5 sm:py-3 px-4 rounded-[14px] text-xs sm:text-sm font-extrabold flex items-center justify-center gap-2 cursor-pointer group hover:scale-[1.02] active:scale-[0.98] transition-all">
+                  <span>Find Slots</span>
+                  <ArrowRight className="w-4 h-4 stroke-[3] group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
+
+            </div>
           </div>
         </div>
 

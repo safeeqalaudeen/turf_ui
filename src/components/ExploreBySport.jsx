@@ -50,8 +50,8 @@ export default function ExploreBySport() {
   ];
 
   return (
-    <section className="relative w-full bg-[#00130D] text-white pt-8 pb-10 sm:pt-9 sm:pb-12 lg:pt-11 lg:pb-13 overflow-hidden select-none border-t border-white/5">
-      
+    <section className="relative w-full bg-[#00130D] text-white pt-8 pb-10 sm:pt-9 sm:pb-12 lg:pt-11 lg:pb-13 overflow-hidden border-t border-white/5">
+
       {/* ========================================================
           SEAMLESS FULL-WIDTH BACKGROUND (WAVES + STADIUM PITCH + FOOTBALL)
           Single continuous background image: 100% smooth, zero seams, zero cut-off edges
@@ -71,10 +71,10 @@ export default function ExploreBySport() {
           MAIN CONTENT CONTAINER
       ======================================================== */}
       <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-8">
-        
+
         {/* Header Row: Title & Eyebrow on left, "View all venues" on right */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-5 sm:mb-6">
-          
+
           {/* Left Title Area */}
           <div>
             {/* Eyebrow */}
@@ -133,19 +133,72 @@ export default function ExploreBySport() {
               <div
                 key={sport.id}
                 onClick={() => setSelectedSport(sport.id)}
-                className={`relative rounded-[22px] sm:rounded-[26px] p-3 sm:py-3.5 sm:px-3 flex flex-col items-center justify-between h-[126px] sm:h-[136px] transition-all duration-300 cursor-pointer group select-none ${
-                  isActive
-                    ? 'border-2 border-[#00F5B0] bg-gradient-to-b from-[#003825]/95 via-[#002619]/95 to-[#001D14]/95 shadow-[0_0_25px_rgba(0,245,176,0.4),inset_0_0_15px_rgba(0,245,176,0.12)] scale-[1.02]'
-                    : 'border border-[#00F5B0]/20 hover:border-[#00F5B0]/45 bg-[#002015]/85 hover:bg-[#002a1c]/90 backdrop-blur-md shadow-md hover:scale-[1.01]'
-                }`}
+                className={`relative rounded-[22px] sm:rounded-[26px] p-3 sm:py-3.5 sm:px-3 flex flex-col items-center justify-between h-[126px] sm:h-[136px] transition-all duration-300 cursor-pointer group ${isActive
+                  ? 'border-2 border-[#00F5B0] bg-gradient-to-b from-[#003825]/95 via-[#002619]/95 to-[#001D14]/95 shadow-[0_0_25px_rgba(0,245,176,0.4),inset_0_0_15px_rgba(0,245,176,0.12)] scale-[1.02]'
+                  : 'border border-[#00F5B0]/20 hover:border-[#00F5B0]/45 bg-[#002015]/85 hover:bg-[#002a1c]/90 backdrop-blur-md shadow-md hover:scale-[1.01]'
+                  }`}
               >
-                {/* Upper Half: Centered 3D Sports Illustration (Seamless, zero rectangular edges) */}
-                <div className="w-full h-15 sm:h-16 flex items-center justify-center relative overflow-hidden">
-                  <img
-                    src={sport.image}
-                    alt={sport.alt}
-                    className="max-h-full max-w-[85%] object-contain drop-shadow-[0_4px_10px_rgba(0,0,0,0.45)] group-hover:scale-105 transition-transform duration-300"
-                  />
+                {/* Upper Half: Centered 3D Sports Illustration with Bouncing Ball & Stationary Neon Ring */}
+                <div className="scene w-full h-[62px] sm:h-[68px] flex flex-col items-center justify-center relative">
+                  {sport.id === 'cricket' ? (
+                    /* Cricket: Bat Pitch Tap & Ball Pop */
+                    <div className="relative w-[64px] h-[50px] sm:h-[54px] flex items-center justify-center z-10">
+                      {/* 3D English Willow Cricket Bat */}
+                      <img
+                        src="/assets/cricket_bat_4k.png"
+                        alt="3D Cricket Bat"
+                        className="absolute h-[46px] sm:h-[50px] object-contain drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)] animate-cricket-bat select-none pointer-events-none z-20 left-0 top-0.5"
+                        loading="eager"
+                      />
+                      {/* 3D Red Leather Cricket Ball */}
+                      <img
+                        src="/assets/cricket_ball_4k.png"
+                        alt="3D Cricket Ball"
+                        className="absolute h-[19px] sm:h-[21px] w-[19px] sm:w-[21px] object-contain drop-shadow-[0_3px_8px_rgba(0,0,0,0.6)] animate-cricket-ball select-none pointer-events-none z-15 right-1 bottom-1"
+                        loading="eager"
+                      />
+                    </div>
+                  ) : sport.id === 'football' ? (
+                    /* Spinning Football (Continuously spins) */
+                    <img
+                      src={sport.image}
+                      alt={sport.alt}
+                      className="max-h-[50px] sm:max-h-[54px] max-w-[85%] object-contain drop-shadow-[0_4px_10px_rgba(0,0,0,0.45)] animate-football-spin select-none pointer-events-none z-10"
+                      loading="eager"
+                    />
+                  ) : sport.id === 'badminton' ? (
+                    /* Floating Shuttlecock (Continuously floats) */
+                    <img
+                      src={sport.image}
+                      alt={sport.alt}
+                      className="max-h-[52px] sm:max-h-[56px] max-w-[85%] object-contain drop-shadow-[0_4px_10px_rgba(0,0,0,0.45)] animate-shuttle select-none pointer-events-none z-10 overflow-visible"
+                      loading="eager"
+                    />
+                  ) : sport.id === 'tennis' ? (
+                    /* Tennis Ball Moving in a Cross-Court Arc */
+                    <img
+                      src={sport.image}
+                      alt={sport.alt}
+                      className="max-h-[48px] sm:max-h-[52px] max-w-[85%] object-contain drop-shadow-[0_4px_10px_rgba(0,0,0,0.45)] animate-tennis-rally select-none pointer-events-none z-10"
+                      loading="eager"
+                    />
+                  ) : sport.id === 'hockey' ? (
+                    /* Original 3D Hockey Image with Realistic Dribble & Flick Animation */
+                    <img
+                      src={sport.image}
+                      alt={sport.alt}
+                      className="max-h-[52px] sm:max-h-[56px] max-w-[85%] object-contain select-none pointer-events-none z-10 animate-hockey-dribble drop-shadow-[0_4px_10px_rgba(0,0,0,0.45)]"
+                      loading="eager"
+                    />
+                  ) : (
+                    <img
+                      src={sport.image}
+                      alt={sport.alt}
+                      className={`${sport.id === 'basketball' ? 'animate-ball-tap' : 'ball'} max-h-[50px] sm:max-h-[54px] max-w-[85%] object-contain drop-shadow-[0_4px_10px_rgba(0,0,0,0.45)] select-none pointer-events-none`}
+                      loading="eager"
+                    />
+                  )}
+                  {sport.id !== 'hockey' && <div className="neon-ring"></div>}
                 </div>
 
                 {/* Lower Half: Sport Name & Subtitle */}
